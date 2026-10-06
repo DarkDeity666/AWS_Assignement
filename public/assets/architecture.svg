@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="610" viewBox="0 0 1040 610" role="img" aria-labelledby="title desc">
+<title id="title">Proposed AWS Student Management Portal architecture</title><desc id="desc">Users to ALB to EC2 application instances in an Auto Scaling group, then a future backend to RDS and DynamoDB. CloudWatch monitors; CloudTrail audits; CodePipeline coordinates deployment; CloudFormation provisions infrastructure. Redshift analytics requires a separate data ingestion process. None of these services is connected to the static prototype.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0l8 4-8 4z" fill="#97ac9d"/></marker></defs>
+<rect width="1040" height="610" rx="16" fill="#fafcf9"/>
+<g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle">
+<text x="520" y="31" fill="#80917f" font-size="11" letter-spacing="2">PROPOSED DESIGN · NO AWS SERVICES CONNECTED</text>
+<g fill="none" stroke="#97ac9d" stroke-width="2" marker-end="url(#arrow)"><path d="M520 100v27"/><path d="M520 187v33H352v30"/><path d="M520 220h168v30"/><path d="M352 310v64h168v28"/><path d="M688 310v64H520"/><path d="M520 439v23H352v24"/><path d="M520 462h168v24"/><path d="M164 286h74"/><path d="M859 135v34"/><path d="M859 218v35H793"/></g>
+<rect x="450" y="50" width="140" height="50" rx="9" fill="#e9f0e5"/><text x="520" y="81" font-size="16" fill="#365742">Users</text>
+<rect x="395" y="133" width="250" height="54" rx="9" fill="#2d5b49"/><text x="520" y="164" font-size="16" fill="white">Application Load Balancer</text>
+<rect x="238" y="231" width="555" height="118" rx="12" fill="none" stroke="#adc0a8" stroke-dasharray="6 4"/>
+<rect x="274" y="250" width="156" height="60" rx="8" fill="#e5eddf"/><text x="352" y="277" font-size="15" fill="#426047">EC2 application</text><text x="352" y="296" font-size="11" fill="#7b8c76">Instance 1 · Zone A</text>
+<rect x="610" y="250" width="156" height="60" rx="8" fill="#e5eddf"/><text x="688" y="277" font-size="15" fill="#426047">EC2 application</text><text x="688" y="296" font-size="11" fill="#7b8c76">Instance 2 · Zone B</text>
+<text x="520" y="336" font-size="11" fill="#7b8c76">EC2 Auto Scaling group</text>
+<rect x="19" y="254" width="145" height="63" rx="8" fill="#ecf1e9"/><text x="91" y="280" font-size="14" fill="#426047">Auto Scaling</text><text x="91" y="301" font-size="10" fill="#7b8c76">Adjust EC2 capacity</text>
+<rect x="412" y="405" width="216" height="34" rx="7" fill="#f1f3ed" stroke="#d3decc"/><text x="520" y="427" font-size="12" fill="#6b7e63">Backend API required on EC2</text>
+<rect x="270" y="491" width="164" height="65" rx="9" fill="#e4edf4"/><text x="352" y="517" font-size="15" fill="#506f85">Amazon RDS</text><text x="352" y="539" font-size="11" fill="#708a9e">Relational student data</text>
+<rect x="606" y="491" width="164" height="65" rx="9" fill="#e4edf4"/><text x="688" y="517" font-size="15" fill="#506f85">DynamoDB</text><text x="688" y="539" font-size="11" fill="#708a9e">NoSQL attendance</text>
+<rect x="784" y="86" width="150" height="49" rx="8" fill="#f0eaf5"/><text x="859" y="116" font-size="14" fill="#846d93">Developer / GitHub</text>
+<rect x="784" y="169" width="150" height="49" rx="8" fill="#f0eaf5"/><text x="859" y="190" font-size="14" fill="#846d93">CodePipeline</text><text x="859" y="207" font-size="10" fill="#9986a5">Coordinates deployment</text>
+<rect x="20" y="388" width="175" height="64" rx="8" fill="#f8f0df"/><text x="107" y="414" font-size="15" fill="#907746">CloudWatch</text><text x="107" y="436" font-size="11" fill="#a48e61">Metrics, logs, alarms</text>
+<rect x="20" y="471" width="175" height="64" rx="8" fill="#f8f0df"/><text x="107" y="497" font-size="15" fill="#907746">CloudTrail</text><text x="107" y="519" font-size="11" fill="#a48e61">AWS API activity audit</text>
+<path d="M238 319H210v97h-15" stroke="#b4bcac" stroke-dasharray="4 4" fill="none" marker-end="url(#arrow)"/>
+<rect x="819" y="352" width="201" height="83" rx="8" fill="#f1f0eb"/><text x="919" y="379" font-size="15" fill="#78755e">CloudFormation</text><text x="919" y="399" font-size="11" fill="#92907a">Defines and provisions</text><text x="919" y="416" font-size="11" fill="#92907a">infrastructure as code</text>
+<rect x="819" y="459" width="201" height="97" rx="8" fill="#f1f0eb"/><text x="919" y="486" font-size="15" fill="#78755e">Amazon Redshift</text><text x="919" y="507" font-size="11" fill="#92907a">Large dataset analytics</text><text x="919" y="526" font-size="10" fill="#92907a">Separate ETL / ingestion required</text><text x="919" y="543" font-size="10" fill="#92907a">Outside the request path</text>
+<text x="520" y="588" font-size="11" fill="#84917e">Current prototype: HTML + CSS + JavaScript → browser storage only.</text>
+</g></svg>

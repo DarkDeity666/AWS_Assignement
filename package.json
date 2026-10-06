@@ -1,0 +1,8 @@
+{
+  "name": "campus-student-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small, accessible student portal prototype for an AWS classroom activity.",
+  "scripts": { "start": "node server.js", "test": "node --test" },
+  "engines": { "node": ">=20" }
+}

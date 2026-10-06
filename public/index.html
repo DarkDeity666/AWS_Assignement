@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Campus: a student management portal prototype for an AWS classroom activity.">
+  <meta name="theme-color" content="#24594a">
+  <title>Campus · Student Portal</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="Campus home"><span class="brand-mark" aria-hidden="true">c</span><span>campus<span class="brand-dot">.</span></span></a>
+    <div class="workspace"><span class="workspace-icon" aria-hidden="true">U</span><span>University workspace<small>Student administration</small></span></div>
+    <p class="nav-label">WORKSPACE</p>
+    <nav aria-label="Main navigation">
+      <a href="#overview" data-nav="overview"><span data-icon="grid"></span>Overview</a>
+      <a href="#students" data-nav="students"><span data-icon="users"></span>Students<span class="nav-count" id="nav-count">12</span></a>
+      <a href="#attendance" data-nav="attendance"><span data-icon="calendar"></span>Attendance</a>
+      <a href="#csv" data-nav="csv"><span data-icon="book"></span>CSV attendance</a>
+      <span class="nav-divider"></span>
+      <a href="#architecture" data-nav="architecture"><span data-icon="cloud"></span>AWS architecture<span class="tiny-label">PLAN</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="lab-note"><span class="eyebrow">BUILT FOR LEARNING</span><strong>A small portal.<br>A scalable idea.</strong><p>Your classroom project, from prototype to AWS.</p><a href="#architecture">Explore the architecture <span aria-hidden="true">↗</span></a></div>
+      <div class="profile"><span class="avatar admin">CA</span><span>Campus administrator<small>Demo workspace · No sign-in</small></span></div>
+    </div>
+  </aside>
+  <div class="shell">
+    <header class="topbar"><div class="breadcrumb">Workspace <span aria-hidden="true">/</span> <strong id="breadcrumb">Overview</strong></div><span class="demo-badge"><span class="status-dot"></span>Browser demo</span></header>
+    <main id="main" tabindex="-1"></main>
+    <footer><span><span class="status-dot"></span><span id="storage-status">Saved in this browser</span></span><span>Fictional student data · AWS services are not connected</span></footer>
+  </div>
+  <dialog id="student-dialog" aria-labelledby="student-dialog-title">
+    <form id="student-form">
+      <div class="dialog-heading"><div><p class="eyebrow">STUDENT DIRECTORY</p><h2 id="student-dialog-title">Add a student</h2></div><button class="icon-button" type="button" data-close="student-dialog" aria-label="Close dialog">×</button></div>
+      <p class="muted">Keep this demo fictional. Fields marked * are required.</p>
+      <input type="hidden" name="originalId">
+      <div class="form-grid">
+        <label>Student ID *<input name="id" required pattern="[A-Za-z0-9-]{3,24}" maxlength="24" placeholder="STU-1013" title="3–24 letters, numbers or hyphens"></label>
+        <label>Full name *<input name="name" required maxlength="70" placeholder="Alex Morgan" autocomplete="off"></label>
+        <label class="full-width">Email address *<input name="email" type="email" required maxlength="120" placeholder="alex@example.edu" autocomplete="off"></label>
+        <label>Department *<select name="department" required><option value="Computer Science">Computer Science</option><option value="Business">Business</option><option value="Engineering">Engineering</option><option value="Design">Design</option></select></label>
+        <label>Year *<select name="year"><option value="1">Year 1</option><option value="2">Year 2</option><option value="3">Year 3</option><option value="4">Year 4</option></select></label>
+        <label>Status *<select name="status"><option value="Active">Active</option><option value="Inactive">Inactive</option></select></label>
+      </div>
+      <p id="form-error" class="form-error" role="alert"></p>
+      <div class="dialog-actions"><button class="button secondary" type="button" data-close="student-dialog">Cancel</button><button class="button primary" type="submit">Save student</button></div>
+    </form>
+  </dialog>
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title"><form method="dialog"><h2 id="confirm-title">Confirm action</h2><p id="confirm-message"></p><div class="dialog-actions"><button class="button secondary" value="cancel">Cancel</button><button class="button danger" id="confirm-action" value="confirm">Confirm</button></div></form></dialog>
+  <div class="toast" role="status" aria-live="polite" id="toast" hidden></div>
+  <noscript><div class="noscript">Enable JavaScript to use the student directory and attendance tools.</div></noscript>
+</body>
+</html>
